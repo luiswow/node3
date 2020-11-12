@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    a.btn.btn-outline-dark(href="/user") Volver
+
+    br
+    br
+    br
+
+    h1 Actualizacion del usuario
+
+    br
+    br
+
+    form(action=`/usuarios/${usuario.id}/update` method='post')
+        .form-group
+            label(for='nombre') Nombre:
+            input#name.form-control(type='text' name='nombre' value=usuario.nombre class= errors.nombre ? 'is-invalid' : '')
+            if errors.nombre
+                small#nameHelp.text-danger
+                    =errors.name.message
+        br
+        br
+        input.btn.btn-primary(type='submit' value='OK')
